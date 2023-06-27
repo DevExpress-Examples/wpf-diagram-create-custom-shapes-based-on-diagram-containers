@@ -68,7 +68,7 @@ void RegisterStencil() {
 
 ```
 
-See also: [WinForms DiagramControl - Register FactoryItemTools for Regular and Custom Shapes](https://supportcenter.devexpress.com/internal/ticket/details/T1174024).
+See also: [WPF DiagramControl - Register FactoryItemTools for Regular and Custom Shapes](https://supportcenter.devexpress.com/internal/ticket/details/T1174035).
 
 ## Files to Review
 
