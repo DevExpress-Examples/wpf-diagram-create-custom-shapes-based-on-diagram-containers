@@ -1,94 +1,94 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/659313972/17.1.3%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1174650)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# WPF - How to create custom shapes based on DiagramContainers
 
-This example demonstrates how to create custom shapes that are consist of DiagramContainers with several inner shapes. You can use this technique when you need to create custom shapes whose geometry can be build using several predefined shapes combined together.
+# WPF Diagram - Create Custom Shapes Based on Diagram Containers
 
-To accomplish this task, you can create a container and add static, non-selectable shapes:
+This example demonstrates how to create custom shapes (that are [DiagramContainers](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer)) with multiple inner shapes. You can use this technique to create custom shapes if their geometry should consist of combined predefined shapes.
 
-```cs
-public DiagramContainer CreateContainerShape1() {
-    var container = new DiagramContainer();
-    container.StrokeThickness = 0;
-    container.Background = Brushes.Transparent;
+![image](https://github.com/DevExpress-Examples/wpf-shapes-based-on-diagramcontainers/assets/65009440/9be4713a-dfd8-4ef1-988e-74062609d39f)
 
-    var innerShape1 = new DiagramShape() {
-        CanSelect = false,
-        CanChangeParent = false,
-        CanEdit = false,
-        CanCopyWithoutParent = false,
-        CanDeleteWithoutParent = false,
-        CanMove = false,
-        Shape = BasicShapes.Trapezoid,
-        Anchors = Sides.Top | Sides.Left | Sides.Right,
-        Height = 50,
-        Width = 200,
+## Implementation Details
 
-        Content = "Custom text"
-    };
+Follow the steps below to accomplish this task:
 
+1. Create a container and add static non-selectable shapes:
 
-    var innerShape2 = new DiagramShape() {
-        CanSelect = false,
-        CanChangeParent = false,
-        CanEdit = false,
-        CanCopyWithoutParent = false,
-        CanDeleteWithoutParent = false,
-        CanMove = false,
-        Shape = BasicShapes.Rectangle,
-        Anchors = Sides.All,
-        Height = 150,
-        Width = 200,
-        Position = new Point(0, 50),
-    };
+   ```cs
+   public DiagramContainer CreateContainerShape1() {
+       var container = new DiagramContainer();
+       container.StrokeThickness = 0;
+       container.Background = Brushes.Transparent;
 
+       var innerShape1 = new DiagramShape() {
+           CanSelect = false,
+           CanChangeParent = false,
+           CanEdit = false,
+           CanCopyWithoutParent = false,
+           CanDeleteWithoutParent = false,
+           CanMove = false,
+           Shape = BasicShapes.Trapezoid,
+           Anchors = Sides.Top | Sides.Left | Sides.Right,
+           Height = 50,
+           Width = 200,
 
-    container.Items.Add(innerShape1);
-    container.Items.Add(innerShape2);
+           Content = "Custom text"
+       };
 
-    return container;
-}
+       var innerShape2 = new DiagramShape() {
+           CanSelect = false,
+           CanChangeParent = false,
+           CanEdit = false,
+           CanCopyWithoutParent = false,
+           CanDeleteWithoutParent = false,
+           CanMove = false,
+           Shape = BasicShapes.Rectangle,
+           Anchors = Sides.All,
+           Height = 150,
+           Width = 200,
+           Position = new Point(0, 50),
+       };
 
-```
+       container.Items.Add(innerShape1);
+       container.Items.Add(innerShape2);
 
-After that, register a custom FactoryItemTool that creates this container's instance:
+       return container;
+   }
+   ```
 
-```cs
-void RegisterStencil() {
-    var stencil = new DiagramStencil("CustomStencil", "Custom Shapes");
+2. Register a [FactoryItemTool](https://docs.devexpress.com/CoreLibraries/DevExpress.Diagram.Core.FactoryItemTool) that creates an instance of this container:
 
-    var itemTool = new FactoryItemTool("CustomShape1",
-        () => "Custom Shape 1",
-        diagram => CreateContainerShape1(),
-        new System.Windows.Size(200, 200), false);
+   ```cs
+   void RegisterStencil() {
+       var stencil = new DiagramStencil("CustomStencil", "Custom Shapes");
 
-    stencil.RegisterTool(itemTool);
-    DiagramToolboxRegistrator.RegisterStencil(stencil);
+       var itemTool = new FactoryItemTool("CustomShape1",
+           () => "Custom Shape 1",
+           diagram => CreateContainerShape1(),
+           new System.Windows.Size(200, 200),
+           false
+       );
 
-    diagramControl1.SelectedStencils = new StencilCollection() { "CustomStencil" };
-}
+       stencil.RegisterTool(itemTool);
+       DiagramToolboxRegistrator.RegisterStencil(stencil);
 
-```
-
-See also: [WPF DiagramControl - Register FactoryItemTools for Regular and Custom Shapes](https://supportcenter.devexpress.com/internal/ticket/details/T1174035).
+       diagramControl1.SelectedStencils = new StencilCollection() { "CustomStencil" };
+   }
+   ```
 
 ## Files to Review
 
-- link.cs (VB: link.vb)
-- link.js
-- ...
+- [MainWindow.xaml.cs](./CS/WpfApp13/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/WpfApp13/MainWindow.xaml.vb))
 
 ## Documentation
 
-- link
-- link
-- ...
+- [DiagramContainer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer)
+- [Containers and Lists](https://docs.devexpress.com/WPF/117205/controls-and-libraries/diagram-control/diagram-items/containers)
+- [Shapes](https://docs.devexpress.com/WPF/116099/controls-and-libraries/diagram-control/diagram-items/shapes)
+- [Manage Item Interaction](https://docs.devexpress.com/WPF/120257/controls-and-libraries/diagram-control/diagram-items/managing-items-interaction)
 
 ## More Examples
 
-- link
-- link
-- ...
+- [WPF DiagramControl - Register FactoryItemTools for Regular and Custom Shapes](https://github.com/DevExpress-Examples/wpf-diagram-register-factoryitemtools-for-shapes)
+- [WPF DiagramControl - Create Rotatable Containers with Shapes](https://github.com/DevExpress-Examples/wpf-diagram-create-rotatable-containers-with-shapes)
