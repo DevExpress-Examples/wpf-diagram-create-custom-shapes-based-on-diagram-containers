@@ -16,7 +16,9 @@ namespace WpfApp13 {
             var itemTool = new FactoryItemTool("CustomShape1",
                 () => "Custom Shape 1",
                 diagram => CreateContainerShape1(),
-                new System.Windows.Size(200, 200), false);
+                new System.Windows.Size(200, 200), 
+                false
+            );
 
             stencil.RegisterTool(itemTool);
             DiagramToolboxRegistrator.RegisterStencil(stencil);
