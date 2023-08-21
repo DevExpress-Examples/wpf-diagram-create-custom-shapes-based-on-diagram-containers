@@ -8,7 +8,7 @@
 
 This example demonstrates how to create custom shapes (that are [DiagramContainers](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer)) with multiple inner shapes. You can use this technique to create custom shapes if their geometry should consist of combined predefined shapes.
 
-![image](https://github.com/DevExpress-Examples/wpf-shapes-based-on-diagramcontainers/assets/65009440/9be4713a-dfd8-4ef1-988e-74062609d39f)
+![image](https://github.com/DevExpress-Examples/wpf-diagram-create-custom-shapes-based-on-diagram-containers/assets/65009440/1e674051-640a-43a0-a421-37499a184e72)
 
 ## Implementation Details
 
