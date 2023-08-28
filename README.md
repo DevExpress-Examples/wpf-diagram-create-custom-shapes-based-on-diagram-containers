@@ -93,3 +93,4 @@ Follow the steps below to accomplish this task:
 
 - [WPF DiagramControl - Register FactoryItemTools for Regular and Custom Shapes](https://github.com/DevExpress-Examples/wpf-diagram-register-factoryitemtools-for-shapes)
 - [WPF DiagramControl - Create Rotatable Containers with Shapes](https://github.com/DevExpress-Examples/wpf-diagram-create-rotatable-containers-with-shapes)
+- [WPF DiagramControl - Proportionally Resize Shapes Within the Parent Container](https://github.com/DevExpress-Examples/wpf-diagram-proportionally-resize-shapes-within-container)
