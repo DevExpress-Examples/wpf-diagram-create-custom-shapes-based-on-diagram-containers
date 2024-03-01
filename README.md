@@ -6,13 +6,13 @@
 
 # WPF DiagramControl - Create Custom Shapes Based on Diagram Containers
 
-This example demonstrates how to create custom shapes (that are [DiagramContainers](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer)) with multiple inner shapes. You can use this technique to create custom shapes if their geometry should consist of combined predefined shapes.
+The following example creates custom DevExpress Diagram shapes ([DiagramContainers](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer)) with multiple inner shapes. You can use this technique to create custom shapes if/when associated geometries must consist of combined predefined shapes.
 
 ![image](https://github.com/DevExpress-Examples/wpf-diagram-create-custom-shapes-based-on-diagram-containers/assets/65009440/1e674051-640a-43a0-a421-37499a184e72)
 
 ## Implementation Details
 
-Follow the steps below to accomplish this task:
+To begin, you must:
 
 1. Create a container and add static non-selectable shapes:
 
@@ -58,7 +58,7 @@ Follow the steps below to accomplish this task:
    }
    ```
 
-2. Register a [FactoryItemTool](https://docs.devexpress.com/CoreLibraries/DevExpress.Diagram.Core.FactoryItemTool) that creates an instance of this container:
+2. Register a [FactoryItemTool](https://docs.devexpress.com/CoreLibraries/DevExpress.Diagram.Core.FactoryItemTool) to create an instance of this container:
 
    ```cs
    void RegisterStencil() {
@@ -87,6 +87,7 @@ Follow the steps below to accomplish this task:
 - [DiagramContainer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Diagram.DiagramContainer)
 - [Containers and Lists](https://docs.devexpress.com/WPF/117205/controls-and-libraries/diagram-control/diagram-items/containers)
 - [Shapes](https://docs.devexpress.com/WPF/116099/controls-and-libraries/diagram-control/diagram-items/shapes)
+- [Create Custom Diagram Items](https://docs.devexpress.com/WPF/404589/controls-and-libraries/diagram-control/diagram-items/create-custom-diagram-items)
 - [Manage Item Interaction](https://docs.devexpress.com/WPF/120257/controls-and-libraries/diagram-control/diagram-items/managing-items-interaction)
 
 ## More Examples
